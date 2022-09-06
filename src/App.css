@@ -76,16 +76,20 @@ body{
 .dot:nth-child(odd):last-child {
   grid-area: g;
 }
+.roll-no{
+  font-size: 30px;
+
+}
 .roll-btn{
   background-color: blue;
   color: white;
   margin: 1.25rem;
-  font-size: 3rem;
+  font-size: 2rem;
   cursor: pointer;
-  height: 6rem;
-  width: 17rem;
+  height: 4rem;
+  width: 12rem;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .roll-btn:focus{
   outline: none;

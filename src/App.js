@@ -9,6 +9,7 @@ function App() {
 
 const[dice, setDice]= useState(allNewDice());
 const[tenzies, setTenzies]= useState(false);
+const[rollNumber, setRollNumber]= useState(0);
 
 //effect runs when dice state array changes
 useEffect(()=>{
@@ -56,21 +57,24 @@ function roll(){
     setDice(oldDice => oldDice.map(die =>{
       return die.isHeld ? die : generateNewDie()
     }))
+    setRollNumber(oldRoll => oldRoll+1)
   }else {
     setTenzies(false)
     setDice(allNewDice())
+    setRollNumber(0)
   }
 }
   return (
       <main className='main'>
       {tenzies && <Confetti />}
       <h1 className='title'>Tenzies</h1>
-      <p className='instructions'> Roll until all die are the same. Click each die to freeze it at its current value between rolls</p>
+      <p className='instructions'> Roll until all the die are the same value.<br/> Click each die to freeze it at its current value between rolls</p>
       <div className='container'>
         {diceElement}
       </div>
+      <p className='roll-no'>No of Rolls:{rollNumber} </p>
 
-    <button onClick={roll} className="roll-btn">{tenzies? "new game": "roll"}
+    <button onClick={roll} className="roll-btn">{tenzies? "New Game": "Roll Dice"}
     </button>
       </main>
   );
